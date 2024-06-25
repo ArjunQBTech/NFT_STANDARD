@@ -1,0 +1,6 @@
+[dependencies]
+base = "0.11.1"
+sha2 = "0.0.6"
+hash = "1.0.0"
+"json.mo" = "0.1.2"
+canistergeek = "0.0.8"
