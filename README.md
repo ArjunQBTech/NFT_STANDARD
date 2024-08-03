@@ -84,13 +84,15 @@ dfx start --background
 Deploy the canister using the specified ID:
 
 ```bash
-dfx deploy --specified-id bkyz2-fmaaa-aaaaa-qaaaq-cai
+dfx deploy --specified-id bkyz2-fmaaa-aaaaa-qaaaq-cai EXT_backend
 ```
 
 During the deployment, you will be asked for the principal of the minter. Use your own principal, which can be obtained using the following command:
 
 ```bash
+dfx identity use anonymous
 dfx identity get-principal
+dfx identity use `previous-identity`
 ```
 
 Copy and paste the principal you get when prompted.
@@ -100,7 +102,7 @@ Copy and paste the principal you get when prompted.
 After the canister is deployed, you can mint an NFT using the following command:
 
 ```bash
-dfx canister call mintNFT '(to :principal  '<principal of user to send the nft>', metadata : "{\22name\22:\22Minimalistic Villas#0\22,\22mimeType\22:\22image\22,\22url\22:\22https://cf-assets.yuku.app/BatchMint/Minimalistic/0.png\22,\22thumb\22:\22https://cf-assets.yuku.app/BatchMint/Minimalistic/0_thumb.png\22,\22description\22:\22This is the NFT from Minimalistic Villas collection\22,\22attributes\22:[{\22trait_type\22:\22Common\22,\22value\22:\22Common\22}]}")'
+dfx canister call EXT_backend mintNFT '(to :principal  '<principal of user to send the nft>', metadata : "{\22name\22:\22Minimalistic Villas#0\22,\22mimeType\22:\22image\22,\22url\22:\22https://cf-assets.yuku.app/BatchMint/Minimalistic/0.png\22,\22thumb\22:\22https://cf-assets.yuku.app/BatchMint/Minimalistic/0_thumb.png\22,\22description\22:\22This is the NFT from Minimalistic Villas collection\22,\22attributes\22:[{\22trait_type\22:\22Common\22,\22value\22:\22Common\22}]}")'
 ```
 
 ### Example
